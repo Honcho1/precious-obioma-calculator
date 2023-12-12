@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Calculator
     const userInputDiv = document.getElementById('user-input');
-    userInputDiv.textContent = 'Enter an expression: ';
-
+    
+    // Create Calculator buttons
     const calculatorDiv = document.getElementById('calculator');
     const buttons = [
         '1', '2', '3', '+',
@@ -15,4 +15,23 @@ document.addEventListener('DOMContentLoaded', function () {
         '7', '8', '9', '*',
         '0', '.', '=', '/'
     ];
-} )
+
+    buttons.forEach(buttonValue => {
+        const button = document.createElement('button');
+        button.textContent = buttonValue;
+        button.addEventListener('click', () => handleButtonClick(buttonValue));
+        calculatorDiv.appendChild(button);
+    });
+
+    function handleButtonClick(value) {
+        if (value === '=') {
+            try {
+                userInputDiv.textContent = eval(userInputDiv.textContent);
+            } catch (error) {
+                userInputDiv.textContent = 'Error';
+            }
+        } else {
+            userInputDiv.textContent += value;
+        }
+    }
+});
