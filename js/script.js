@@ -6,14 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Calculator
     const userInputDiv = document.getElementById('user-input');
-    
-    // Create Calculator buttons
+    userInputDiv.textContent = '';
+
     const calculatorDiv = document.getElementById('calculator');
     const buttons = [
-        '1', '2', '3', '+',
-        '4', '5', '6', '-',
-        '7', '8', '9', '*',
-        '0', '.', '=', '/'
+        '7', '8', '9', '/',
+        '4', '5', '6', '*',
+        '1', '2', '3', '-',
+        '0', '.', '=', '+',
+        'C'
     ];
 
     buttons.forEach(buttonValue => {
@@ -30,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (error) {
                 userInputDiv.textContent = 'Error';
             }
+        } else if (value === 'C') {
+            userInputDiv.textContent = '';
         } else {
             userInputDiv.textContent += value;
         }
