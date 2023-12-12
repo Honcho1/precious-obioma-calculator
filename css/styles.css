@@ -47,6 +47,7 @@ button:hover {
 
 button:last-child {
   background-color: #e67e22;
+  border-radius: 5px;
 }
 
 #user-input {
